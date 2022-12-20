@@ -1,0 +1,280 @@
+/* This is an internal file, do not modify unless you know
+/* what you are doing!
+/* If you wish to add some CSS to the website, you should use the
+/* corresponding option in config.php instead.
+*/
+
+/********** PAGE LAYOUT *******************************************/
+
+/*** Global layout ***/
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px 20px;
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font), sans-serif;
+}
+
+#gauche, #droite {
+    flex-basis: 0px;
+    flex-grow: 1;
+}
+
+#milieu {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 800px;
+    flex-grow: 0;
+}
+
+
+/*** Header ***/
+
+header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#lang {
+    margin-bottom: 5px;
+    text-align: right;
+    color: #888;
+    font-size: 85%;
+}
+
+    #lang span {
+        font-weight: bold;
+    }
+
+    #lang a {
+        border-bottom-style: none;
+    }
+    #lang a:hover {
+        border-bottom-style: solid;
+    }
+
+#titre a {
+    display: block;
+    box-sizing: border-box;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 3px 8px;
+    background-color: var(--c1);
+    border: none;
+    text-align: center;
+    font-family: var(--hfont), var(--font), sans-serif;
+    font-size: 180%;
+    font-weight: bold;
+    color: white;
+}
+
+#soustitre {
+    padding-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 85%;
+    color: var(--c1)
+}
+
+nav {
+    display: flex;
+    margin-top: 20px;
+    border-top: 2px solid rgba(127, 127, 127, 0.1);
+    border-bottom: 2px solid rgba(127, 127, 127, 0.1);
+    padding: 6px 0;
+    background-color: rgba(127, 127, 127, 0.04);
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 4px;
+}
+
+    nav a {
+        display: inline-block;
+        border: none;
+        padding: 0 5px;
+        opacity: 0.7;
+        text-transform: uppercase;
+        font-size: 85%;
+    }
+    nav a:hover {
+        opacity: 1;
+    }
+
+
+/*** Footer ***/
+
+footer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px 0 10px;
+    color: #888;
+    font-size: 85%;
+}
+
+
+/********** GLOBAL STYLING ****************************************/
+
+/*** General text ***/
+
+p, li {
+    text-align: justify;
+    line-height: 150%;
+    margin: 2px 0 6px;
+    hyphens: auto;
+}
+
+a, .lien {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid #888;
+}
+a:hover, .lien:hover {
+    color: var(--lk);
+    border-bottom-color: var(--lk);
+}
+.lien {
+    cursor: pointer;
+}
+
+
+/*** Headings ***/
+
+h1, h2, h3 {
+    font-family: var(--hfont), var(--font), sans-serif;
+}
+
+h1 {
+    margin: 32px 0 18px;
+    font-size: 170%;
+    font-weight: bold;
+    color: var(--c2);
+}
+
+h2 {
+    margin: 20px 0 10px;
+    font-size: 125%;
+    font-weight: bold;
+    color: var(--c3);
+}
+
+/* Class .subdivision (below) behaves just like h3, if you
+/* modify the latter you might want to modify the former. */
+h3 {
+    margin: 10px 0 8px;
+    font-size: 110%;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+
+/*** Lists ***/
+
+ul {
+	list-style: none;
+	padding-left: 1.3em;
+	margin-top: 0;
+	}
+li {
+	text-indent: -1.3em;
+	}
+li::before{
+	content: "▸";
+	color: var(--c1);
+	padding-right: calc(1.3em - 1ch);
+	}
+li * {
+	text-indent: initial;
+}
+
+
+/********** GADGETS ************************************************/
+
+/* For the "profile picture" on the top right of a paragraph. */
+.myself {
+    float: right;
+    width: 120px;
+    max-width: 40%;
+    margin: 10px 0 10px 30px;
+}
+
+/* For the first element (in each language) of the page
+/* so that only the margin of the <header> appears. */
+.topelement {
+    margin-top: 2px;
+}
+
+/* Insert a skip above an element
+/* (like a line skip between paragraphs). */
+.skipabove {
+    margin-top: 12px;
+}
+
+/********** PUBLICATION AND TALK LISTS *****************************/
+
+.publis {
+    margin: 15px 0;
+}
+
+.publis .subdivision {
+    margin: 10px 0 8px;
+    font-size: 110%;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+.publis .publi {
+    display: flex;
+    padding-left: 8px;
+    margin: 2px 0 8px;
+    text-align: justify;
+    line-height: 150%;
+    hyphens: auto;
+}
+
+.publis .importante {
+    border: 2px solid rgba(127, 127, 127, 0.1);
+    background-color: rgba(127, 127, 127, 0.04);
+    padding: 8px 8px 6px 6px;
+}
+
+.pubicone {
+    width: 1.7em;
+    flex-shrink: 0;
+    padding-top: 2px;
+}
+
+.pubicone img {
+    width: 16px;
+}
+
+span.pubtitre {
+    font-weight: bold;
+}
+
+.pubdetails {
+    font-size: 85%;
+}
+
+.publiens {
+    font-size: 85%;
+}
+
+.publiens .lien, .publiens a {
+    margin-right: 10px;
+}
+
+.pubresume {
+    margin-top: 5px;
+    font-size: 85%;
+}
