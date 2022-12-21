@@ -21,7 +21,8 @@ if( !defined("origin") ) { die("<h1>Access denied</h1>"); }
 //   a default string can be provided in the field abstract
 // - important (boolean), to highlight important publications
 // - lang (string) for the language of the publication
-// - pdf, arxiv, hal, code, slides (strings) for URLs
+// - pdf, arxiv, hal, code, slides (strings) for URLs, and any other
+//   link type defined in $op_linktypes.
 
 // This is a model you can copy:
 /*

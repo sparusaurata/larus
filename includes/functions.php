@@ -140,6 +140,24 @@ function format_auteurs($list) {
       }
 }
 
+// Returns the links associated to a publication or a talk.
+function get_links($item, $separator) {
+      global $op_linktypes, $lang;
+      $out = array();
+      foreach ( $op_linktypes as $linktype => $details ) {
+            if ( !empty($item[$linktype]) ) {
+                  $cur = '<a href="';
+                  if ( isset($details['prefix']) ) {
+                        $cur .= $details['prefix'];
+                  }
+                  $cur .= $item[$linktype] . '" target="_blank">' . 
+                        $details[$lang] . '</a>';
+                  $out[] = $cur;
+            }
+      }
+      return implode($separator, $out);
+}
+
 // Prints a single publication.
 // $id (string) is the identifier of the item.
 // $p (array) contains the data of the publication.
@@ -196,13 +214,10 @@ function print_pub($id, $p, $printdate) {
             }
             
             // Third line (links)
+            $liens = get_links($p, "");
             if ( !empty($p['abstract'.$lang])
             or   !empty($p['abstract'])
-            or   !empty($p['pdf'])
-            or   !empty($p['arxiv'])
-            or   !empty($p['hal'])
-            or   !empty($p['code'])
-            or   !empty($p['slides']) ) {
+            or   $liens ) {
                   echo '<div class="publiens">';
                   if ( !empty($p['abstract'.$lang])
                   or   !empty($p['abstract']) ) {
@@ -211,28 +226,7 @@ function print_pub($id, $p, $printdate) {
                               . $op_translations['Abstract'][$lang]
                               . '</span>';
                   }
-                  if ( !empty($p['pdf']) ) {
-                        echo '<a href="' . $p['pdf']
-                              . '" target="_blank">PDF</a>';
-                  }
-                  if ( !empty($p['arxiv']) ) {
-                        echo '<a href="https://arxiv.org/abs/'
-                              . $p['arxiv']
-                              . '" target="_blank">arXiv</a>';
-                  }
-                  if ( !empty($p['hal']) ) {
-                        echo '<a href="https://hal.archives-ouvertes.fr/'
-                              . $p['hal']
-                              . '" target="_blank">HAL</a>';
-                  }
-                  if ( !empty($p['code']) ) {
-                        echo '<a href="' . $p['code'] . '" target="_blank">'
-                              . $op_translations['Code'][$lang] . '</a>';
-                  }
-                  if ( !empty($p['slides']) ) {
-                        echo '<a href="' . $p['slides'] . '" target="_blank">'
-                              . $op_translations['Slides'][$lang] . '</a>';
-                  }
+                  echo $liens;
                   echo '</div>';
             }
 
@@ -296,20 +290,14 @@ function print_talk($id, $p, $printdate) {
             echo '<span class="talkinfo">' . $p['info'] . '</span> ';
       }
 
-      $out = array();
-      foreach ( ['pdf', 'slides', 'video'] as $i ) {
-            if ( !empty($p[$i]) ) {
-                  $out[] = '<a href="' . $p[$i] . '" target="_blank">'
-                        . $op_translations[ucfirst($i)][$lang] . '</a>';
-            }
-      }
-      if ( $out ) {
+      // Links
+
+      $liens = get_links($p, ", ");
+      if ( $liens ) {
             echo '<span class="talkliens">';
-            echo implode(", ", $out);
+            echo $liens;
             echo '.</span>';
       }
-
-      // Links
 
       // Closing </div>'s
       echo '</div>';

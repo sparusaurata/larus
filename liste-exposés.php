@@ -16,7 +16,8 @@ if( !defined("origin") ) { die("<h1>Access denied</h1>"); }
 //   information in the language xx (where it was published, etc.) ;
 //   a default string can be provided in the field info
 // - important (boolean), to highlight important publications
-// - pdf, video, slides (strings) for URLs
+// - pdf, video, slides (strings) for URLs, and any other
+//   link type defined in $op_linktypes.
 
 // This is a model you can copy:
 /*

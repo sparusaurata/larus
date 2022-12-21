@@ -37,22 +37,6 @@ $op_translations = array(
       'and' => array(
             'fr' => "et",
             'en' => "and"
-      ),
-      'Code' => array(
-            'fr' => "Code",
-            'en' => "Code"
-      ),
-      'PDF' => array(
-            'fr' => 'PDF',
-            'en' => 'PDF'
-      ),
-      'Slides' => array(
-            'fr' => "Diapos",
-            'en' => "Slides"
-      ),
-      'Video' => array(
-            'fr' => 'Vidéo',
-            'en' => 'Video'
       )
 );
 
@@ -281,6 +265,39 @@ $op_talktypes = array(
 // Give the order of the talk types. By default, this is just
 // the order given below.
 $op_talktypes_order = array_keys($op_talktypes);
+
+// List the types of links below a publication or a talk.
+// Provide (capitalised) translations for each.
+// The 'prefix' should be the beginnig of an URL, see
+// the example with 'arXiv' below.
+$op_linktypes = array(
+      'pdf' => array(
+            'fr' => "PDF",
+            'en' => "PDF"
+      ),
+      'arxiv' => array(
+            'prefix' => "https://arxiv.org/abs/",
+            'fr' => "arXiv",
+            'en' => "arXiv"
+      ),
+      'hal' => array(
+            'prefix' => "https://hal.archives-ouvertes.fr/",
+            'fr' => "HAL",
+            'en' => "HAL"
+      ),
+      'slides' => array(
+            'fr' => "Diapos",
+            'en' => "Slides"
+      ),
+      'code' => array(
+            'fr' => "Code",
+            'en' => "Code"
+      ),
+      'video' => array(
+            'fr' => "Vidéo",
+            'en' => "Video"
+      )
+);
 
 
 ////////// ADDITIONAL STUFF ////////////////////////////////////////
