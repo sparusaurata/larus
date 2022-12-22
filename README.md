@@ -99,8 +99,8 @@ related to this template, or if you need some help to use it.
 ## Licensing
 
 The code and the documentation of this template is distributed under the
-[GNU GPL v3 or later](https://github.com/sparusaurata/larus/blob/main/\
-LICENSE.md).
+[GNU GPL v3 or later](
+https://github.com/sparusaurata/larus/blob/main/LICENSE.md).
 
 > Larus, a template for academic websites
 > Copyright (C) 2022 Rémy Cerda
@@ -124,11 +124,11 @@ license:
   Twitter, Inc. and other contributors, distributed under the
   [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
   license;
-* a picture of [_Larus michahellis_ in the Farnese Gardens](https://commons.\
-  wikimedia.org/wiki/File:Larus_michahellis_in_Farnese_Gardens_02.jpg) by
-  [Krzysztof Golik](https://commons.wikimedia.org/wiki/User:Tournasol7),
-  distributed under the [Creative Commons BY-SA 4.0](
-  https://creativecommons.org/licenses/by-sa/4.0/) license.
+* a picture of [_Larus michahellis_ in the Farnese Gardens
+  ](https://commons.wikimedia.org/wiki/File:Larus_michahellis_in_Farnese_Gardens_02.jpg)
+  by [Krzysztof Golik](https://commons.wikimedia.org/wiki/User:Tournasol7),
+  distributed under the [Creative Commons BY-SA 4.0
+  ](https://creativecommons.org/licenses/by-sa/4.0/) license.
 
 The following third-party components are loaded by this template (if the 
 corresponding options are activated):
