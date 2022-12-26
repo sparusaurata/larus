@@ -1,17 +1,25 @@
-/* This is an internal file, do not modify unless you know
-/* what you are doing!
-/* If you wish to add some CSS to the website, you should use the
-/* corresponding option in config.php instead.
-*/
+/**
+ * This file contains the CSS styles used in the wbesite.
+ * 
+ * This is an internal file, do not modify unless you know what
+ * you are doing!
+ * If you want to add some styles to th website, you may use the
+ * corresponding option in `config.php` instead.
+ * 
+ * @license GNU General Public License v3 or later, see LICENSE.md
+ * @link    https://github.com/sparusaurata/larus
+ */
 
-/********** PAGE LAYOUT *******************************************/
+/********** PAGE LAYOUT ******************************************************/
 
-/*** Global layout ***/
+/***** Global layout *****/
 
+/* The page is at least as high as the viewport */
 html {
     height: 100%;
 }
 
+/* Wrapper of the whole page */
 body {
     display: flex;
     min-height: 100%;
@@ -23,11 +31,13 @@ body {
     font-family: var(--font), sans-serif;
 }
 
+/* Left and right areas around the body of the page */
 #gauche, #droite {
     flex-basis: 0px;
     flex-grow: 1;
 }
 
+/* Wrapper of the body of the page (including head and foot) */
 #milieu {
     display: flex;
     flex-direction: column;
@@ -36,13 +46,15 @@ body {
 }
 
 
-/*** Header ***/
+/***** Header *****/
 
+/* Wrapper of the header */
 header {
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
+/* Language selection menu */
 #lang {
     margin-bottom: 5px;
     text-align: right;
@@ -50,10 +62,12 @@ header {
     font-size: 85%;
 }
 
+    /* Active language (no link) */
     #lang span {
         font-weight: bold;
     }
 
+    /* Inactive languages (links) */
     #lang a {
         border-bottom-style: none;
     }
@@ -61,6 +75,7 @@ header {
         border-bottom-style: solid;
     }
 
+/* Main title of the website */
 #titre a {
     display: block;
     box-sizing: border-box;
@@ -76,6 +91,7 @@ header {
     color: white;
 }
 
+/* Subtitle of the website */
 #soustitre {
     padding-top: 10px;
     text-align: center;
@@ -85,6 +101,7 @@ header {
     color: var(--c1)
 }
 
+/* Main menu of the website */
 nav {
     display: flex;
     margin-top: 20px;
@@ -110,8 +127,9 @@ nav {
     }
 
 
-/*** Footer ***/
+/***** Footer *****/
 
+/* Wrapper of the footer */
 footer {
     flex-grow: 1;
     display: flex;
@@ -123,10 +141,11 @@ footer {
 }
 
 
-/********** GLOBAL STYLING ****************************************/
+/********** GLOBAL STYLING ***************************************************/
 
-/*** General text ***/
+/***** General text *****/
 
+/* Paragraphs and list items */
 p, li {
     text-align: justify;
     line-height: 150%;
@@ -134,6 +153,7 @@ p, li {
     hyphens: auto;
 }
 
+/* Hyperlinks */
 a, .lien {
     color: inherit;
     text-decoration: none;
@@ -148,7 +168,7 @@ a:hover, .lien:hover {
 }
 
 
-/*** Headings ***/
+/***** Headings *****/
 
 h1, h2, h3 {
     font-family: var(--hfont), var(--font), sans-serif;
@@ -158,14 +178,14 @@ h1 {
     margin: 32px 0 18px;
     font-size: 170%;
     font-weight: bold;
-    color: var(--c2);
+    color: var(--c1);
 }
 
 h2 {
     margin: 20px 0 10px;
     font-size: 125%;
     font-weight: bold;
-    color: var(--c3);
+    color: var(--c2);
 }
 
 /* Class .subdivision (below) behaves just like h3, if you
@@ -175,30 +195,44 @@ h3 {
     font-size: 110%;
     font-weight: bold;
     font-variant: small-caps;
+    color: var(--c3);
 }
 
 
-/*** Lists ***/
+/***** Lists *****/
 
+/* Unordered lists */
 ul {
-	list-style: none;
-	padding-left: 1.3em;
-	margin-top: 0;
-	}
-li {
-	text-indent: -1.3em;
-	}
-li::before{
-	content: "▸";
-	color: var(--c1);
-	padding-right: calc(1.3em - 1ch);
-	}
-li * {
-	text-indent: initial;
+    padding-left: 1.2em;
+    margin: 3px 0;
 }
 
+    ul li {
+        padding-left: calc(8px + 0.5em);
+    }
 
-/********** GADGETS ************************************************/
+    ul li::marker{
+        content: "▸";
+        color: var(--c2);
+    }
+
+/* Ordered lists */
+ol {
+    padding-left: 1.7em;
+    margin: 5px 0;
+}
+
+    ol li {
+        padding-left: 8px;
+    }
+
+    ol li::marker {
+        color: var(--c2);
+        font-weight: bold;
+    }
+
+
+/********** GADGETS ***********************************************************/
 
 /* For the "profile picture" on the top right of a paragraph. */
 .myself {
@@ -220,19 +254,31 @@ li * {
     margin-top: 12px;
 }
 
-/********** PUBLICATION AND TALK LISTS *****************************/
+/* Source code (mostly intended for the demo). */
+.code {
+    padding: 1px 3px;
+    font-family: monospace;
+    background-color: black;
+}
 
+
+/********** PUBLICATION AND TALK LISTS ***************************************/
+
+/* Wrapper of the list */
 .publis {
     margin: 15px 0;
 }
 
+/* Subheading inside the list */
 .publis .subdivision {
     margin: 10px 0 8px;
     font-size: 110%;
     font-weight: bold;
     font-variant: small-caps;
+    color: var(--c3);
 }
 
+/* Wrapper of a single publication or talk */
 .publis .publi {
     display: flex;
     padding-left: 8px;
@@ -242,38 +288,42 @@ li * {
     hyphens: auto;
 }
 
+/* Publications or talks marked as important */
 .publis .importante {
     border: 2px solid rgba(127, 127, 127, 0.1);
     background-color: rgba(127, 127, 127, 0.04);
     padding: 8px 8px 6px 6px;
 }
 
+/* Frame containing the icon at the left of the publication or talk */
 .pubicone {
     width: 1.7em;
     flex-shrink: 0;
     padding-top: 2px;
 }
-
 .pubicone img {
     width: 16px;
 }
 
+/* Title of a publication or talk */
 span.pubtitre {
     font-weight: bold;
 }
 
+/* Details of a publication (2nd line) */
 .pubdetails {
     font-size: 85%;
 }
 
+/* Links related to a publication (3rd line) */
 .publiens {
     font-size: 85%;
 }
-
 .publiens .lien, .publiens a {
     margin-right: 10px;
 }
 
+/* Abstract of a publication */
 .pubresume {
     margin-top: 5px;
     font-size: 85%;

@@ -1,342 +1,616 @@
-<?php // This is where you can configure some options for the
-      // website. Further customisation can be done by modifying
-      // the internal code in the includes/ folder.
+<?php
 
-// Prevent from loading directly this page.
-// Do not modify this line.
+/**
+ * This is the configuration file of the template, where the customisation
+ * options can be set.
+ * 
+ * Modify it carefully to change the behaviour and the appearance of the
+ * website. Each option is documented.
+ * 
+ * @license GNU General Public License v3 or later, see LICENSE.md
+ * @link    https://github.com/sparusaurata/larus
+ */
+
+// This line prevents from loading directly this page. Do not modify.
 if( !defined("origin") ) { die("<h1>Access denied</h1>"); }
 
 
-// Modify the options below to custom the webpage.
-// Do not modify the global structure of this file unless you 
-// know what you are doing.
+/**
+ * Contents:
+ *  - Language options
+ *  - Information about you and the website
+ *  - Main menu
+ *  - External components
+ *  - Styling
+ *  - Lists of publications or talks
+ *  - Additional stuff
+ */
 
 
-////////// LANGUAGE OPTIONS ////////////////////////////////////////
+////////// LANGUAGE OPTIONS ///////////////////////////////////////////////////
 
-// (De)activates the support for multiple languages.
+
+/**
+ * (De)activates the support for multiple languages.
+ * 
+ * Beware, setting this (back) to true can result in bugs. Make sure all the
+ * translations needed are defined (below in this file).
+ * 
+ * @global  boolean $op_multilingual
+ */
 $op_multilingual = true;
 
-// Main (default) and other languages of the webpage.
-// These should be 2-letter ISO 639-1 codes, see:
-// https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes.
-// Beware, changing these can result in some bugs! Make sure you
-// update all the translations below, and check that the website
-// works correctly before uploading it.
-$op_mainlang = "fr";
-$op_otherlangs = ["en"];
 
-// Additional translations, used somewhere in the website.
-// Beware, there are capitalised versions. This was the best option
-// to make sure capitalising does not mess up with some languages.
+/**
+ * Main and other languages of the website.
+ * 
+ * The main language should always be defined (even if $op_multilingual is
+ * false). Add as many other languages as you want.
+ * 
+ * The data should be provided as ISO 639-1 codes. For details, see:
+ * https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes.
+ * 
+ * Beware, translations must be provided for all the languages defined here
+ * (in particular, it should be the case for the main language). If you modify
+ * the languages, make sur all the translations needed are defined (below in
+ * this file). Missing translations will result in (possibly huge) bugs.
+ * 
+ * @global  string  $op_mainlang
+ * @global  array   $op_otherlangs      _ => string
+ */
+$op_mainlang = "en";
+$op_otherlangs = ["fr"];
+
+
+/** 
+ * Additional translations, used somewhere in the website.
+ * 
+ * Translations must be provided for all languages defined in $op_mainlang and
+ * in $op_otherlangs.
+ * 
+ * Beware, there are capitalised strings. This was the best option to make 
+ * sure capitalising does not mess up with some languages.
+ * 
+ * @global  array   $op_translations    string => array( string => string )
+
+ */
 $op_translations = array(
-      'Abstract' => array(
-            'fr' => "Résumé",
-            'en' => "Abstract"
-      ),
-      'and' => array(
-            'fr' => "et",
-            'en' => "and"
-      )
+    'Abstract' => array(
+        'fr' => "Résumé",
+        'en' => "Abstract"
+    ),
+    'and' => array(
+        'fr' => "et",
+        'en' => "and"
+    )
 );
 
 
-////////// INFORMATION ABOUT YOU AND THE WEBSITE ///////////////////
+/**
+ * Other mandatory translations are defined in the following options:
+ *  - $op_title
+ *  - $op_subtitle
+ *  - $op_description
+ *  - $op_nav_content
+ *  - $op_pubtypes
+ *  - $op_pubstates
+ *  - $op_talktypes
+ *  - $op_linktypes
+ * 
+ * You might also want to translate the additional HTML (using the lang
+ * attribute) in the following options:
+ *  - $op_addleft
+ *  - $op_addright
+ *  - $op_footer
+ * 
+ * All these options can be modified below.
+ */
 
-// Your name, as it should be displayed (without formatting).
-$op_name = "John Doe";
 
-// The title of the website: this should be a very short text.
-// By default it is just your name, but it could also be something
-// like 'John Doe's website'.
+
+////////// INFORMATION ABOUT YOU AND THE WEBSITE //////////////////////////////
+
+
+/**
+ * Your name.
+ * 
+ * Write it as it should be displayed, but without any (HTML) formatting.
+ * 
+ * @global  string  $op_name
+ */
+$op_name = "Larus Michahellis";
+
+
+/**
+ * The title of the website.
+ * 
+ * This should be a very short text. Two reasonable values are:
+ *  - just your name
+ *  - something like "John Doe's website".
+ * 
+ * Translations must be provided for all languages defined in $op_mainlang and
+ * in $op_otherlangs.
+ * 
+ * @global  array   $op_title           string => string
+ */
 $op_title = array(
-      'fr' => $op_name,
-      'en' => $op_name
+    'fr' => "Larus",
+    'en' => "Larus"
 );
 
-// The subtitle of the website. This can be set to null (in that
-// case, the subtitle is disabled).
+
+/**
+ * The subtitle of the website.
+ * 
+ * This should again be rather short. It can be set to null (in that case, the 
+ * subtitle is disabled).
+ * 
+ * Translations must be provided for all languages defined in $op_mainlang and
+ * in $op_otherlangs.
+ * 
+ * @global  array   $op_subtitle        string => string
+ */
 $op_subtitle = array(
-      'fr' => "Ma page personnelle",
-      'en' => "My personal webpage"
+    'fr' => "Un modèle de site web académique",
+    'en' => "A template for academic websites"
 );
 
-// A description of the website: this should remain quit short. It
-// is displayed in search engines, or when sharing a link in some
-// social network.
+
+/**
+ * A description of the website.
+ * 
+ * This will not be displayed in the wbesite, but can be used by search engines
+ * or when a page is shared in social networks.
+ * 
+ * Translations must be provided for all languages defined in $op_mainlang and
+ * in $op_otherlangs.
+ * 
+ * @global  array   $op_description     string => string
+ */
 $op_description = array(
-      'fr' => "La page personnelle de " . $op_name,
-      'en' => $op_name . "'s personal webpage"
+    'fr' => "Larus est un modèle de site web léger et simple pour créer des \
+        sites personnels académiques.",
+    'en' => "Larus is a lightweight, easy-to-use template for creating \
+        academic personal websites."
 );
 
-// The favicon of the website (this is the little icon displayed
-// in the web browser tabs).
-// Set this to null if you want to disable the favicon (or if it
-// is already set by the server).
+
+/**
+ * The path to the favicon of the website.
+ * 
+ * The favicon is the little icon displayed in the web browser, e.g. next to
+ * the title of the tab containing the webpage.
+ * 
+ * It can be set to null. In that case, the favicon is disabled — this can be
+ * useful if a favicon is already defined by the server containing your
+ * website.
+ * 
+ * @global  string  $op_favicon
+ */
 $op_favicon = "includes/larus-favicon.png";
 
 
-////////// MAIN MENU ///////////////////////////////////////////////
 
-// (De)activate the main menu at the top of each page.
+////////// MAIN MENU //////////////////////////////////////////////////////////
+
+
+/**
+ * (De)activate the main menu at the top of each page.
+ * 
+ * @global  boolean $op_nav
+ */
 $op_nav = true;
 
-// Content of the main menu.
-// For each menu item, specify a link (you probably want to link to
-// other pages, like "research.php", or to headings in the same
-// page, like "#research") and a title for each declared language.
+
+/**
+ * Content of the main menu.
+ * 
+ * This should be an array of menu items.
+ * Each menu item is itself an array, and must contain:
+ * - an element indexed by 'link' containing the link associated to the menu
+ *   item (this could be another page, like "research.php", or the reference
+ *   of a 'id' HTML property, like "#research"),
+ * - elements indexed by each language defined in $op_mainlang and in
+ *   $op_otherlangs, containing the text of the link in each language.
+ * 
+ * @global  array   $op_nav_content     _ => array( string => string )
+ */
 $op_nav_content = [
-      array(
-            'link' => "#recherche",
-            'fr'   => "Recherche",
-            'en'   => "Research"
-      ),
-      array(
-            'link' => "#enseignement",
-            'fr'   => "Enseignement",
-            'en'   => "Teaching"
-      ),
-      array(
-            'link' => "#contact",
-            'fr'   => "Contact",
-            'en'   => "Contact"
-      )
+    array(
+        'link' => "#",
+        'fr'   => "Accueil",
+        'en'   => "Home"
+    ),
+    array(
+        'link' => "#heading",
+        'fr'   => "Lien vers une ancre",
+        'en'   => "Anchor link"
+    ),
+    array(
+        'link' => "lists.php",
+        'fr'   => "Publications et exposés",
+        'en'   => "Publications and talks"
+    ),
+    array(
+        'link' => "https://github.com/sparusaurata/larus",
+        'fr'   => "GitHub",
+        'en'   => "GitHub"
+    )
 ];
 
 
-////////// EXTERNAL FUNCTIONALITIES ////////////////////////////////
 
-// (De)activate the loading of the 'Roboto' font (from Google 
-// fonts) as a default: https://fonts.google.com/specimen/Roboto.
+////////// EXTERNAL COMPONENTS ////////////////////////////////////////////////
+
+
+/**
+ * (De)activate the loading of some Google fonts.
+ * 
+ * By default, the fonts Roboto and Roboto Condensed from Google fonts are
+ * loaded. See:
+ * https://fonts.google.com/specimen/Roboto,
+ * https://fonts.google.com/specimen/Roboto+Condensed.
+ * This is performed when $op_gfonts is true.
+ * 
+ * You can also load other Google fonts (or any fonts contained in a CSS
+ * stylesheet). To do so, set $op_othergfonts to a string containing the URL
+ * to this stylesheet — for Google fonts, this is the link starting by:
+ * https://fonts.googleapis.com/css2?.
+ * Otherwise, set $op_othergfonts to null.
+ * 
+ * @global  boolean $op_gfonts
+ * @global  string  $op_othergfonts
+ */
 $op_gfonts = true;
-
-// If you want to load another set of Google fonts (or any fonts
-// contained in a CSS stylesheet), set this to a string containing
-// the link https://fonts.googleapis.com/css2?... provided by
-// Google fonts.
 $op_othergfonts = null;
-// In case you want to modify the main font, this is where you
-// should specify it.
-$op_mainfont = "Roboto";
-// Same for the font of the headings.
-$op_headfont = $op_mainfont . " Condensed";
 
-// (De)activate the loading of MathJax: https://www.mathjax.org/.
-// This tool enables writing TeX formulæ.
+
+/**
+ * Fonts used in the website.
+ * 
+ * These are the main font (used in the text) and the heading font (used... in
+ * the headings) of the website.
+ * Note that 'sans-serif' is always defined as a fallback font, in case these
+ * options are left empty or the fonts aren't found.
+ * 
+ * @global  string  $op_mainfont
+ * @global  string  $op_headfont
+ */
+$op_mainfont = "Roboto";
+$op_headfont = "Roboto Condensed";
+
+
+/**
+ * (De)activate the loading of MathJax.
+ * 
+ * MathJax is a library that enables you to write mathematical formulæ using
+ * the TeX syntax.
+ * See https://www.mathjax.org/.
+ * 
+ * @global  boolean $op_mathjax
+ */
 $op_mathjax = true;
 
 
-////////// STYLING /////////////////////////////////////////////////
 
-// All colours should be valid CSS colour specifications, see:
-// https://developer.mozilla.org/fr/docs/Web/CSS/color.
+////////// STYLING ////////////////////////////////////////////////////////////
 
-// Background colour of the website.
-$op_bgcolour = "hsl(0, 3%, 23%)";
 
-// Foreground colour of the website (default colour of the text).
-$op_fgcolour = "white";
+/**
+ * Base colors of the website.
+ * 
+ * All colors should be valid CSS color specifications, see:
+ * https://developer.mozilla.org/fr/docs/Web/CSS/color.
+ * 
+ * $op_bgcolor is the background color of the pages.
+ * $op_fgcolor is the foreground color, ie. the color of the text.
+ * $op_color1 is used to highlight some elements (main title, h1).
+ * $op_color2 is used to highlight some elements (list bullets and numberings,
+ *   h2). By default it is lighter than $op_color1.
+ * $op_color3 is used to highlight some elements (h3). By default it is darker
+ *   than $op_color1.
+ * $op_linkcolor is the color of the (hovered) hyperlinks.
+ * 
+ * @global  string  $op_bgcolor
+ * @global  string  $op_fgcolor
+ * @global  string  $op_color1
+ * @global  string  $op_color2
+ * @global  string  $op_color3
+ * @global  string  $op_linkcolor
+ */
+$op_bgcolor     = "hsl(200,  20%,  20%)";
+$op_fgcolor     = "white";
+$op_color1      = "hsl(200, 100%,  50%)";
+$op_color2      = "hsl(200, 100%,  70%)";
+$op_color3      = "hsl(200,  30%,  40%)";
+$op_linkcolor   = "hsl(320, 100%,  50%)";
 
-// Three colours for the styling of the pages.
-// By default, similar colours are chosen; colour2 is lighter,
-// colour3 is darker.
-$op_colour1 = "hsl(0, 100%,  50%)";
-$op_colour2 = "hsl(0, 100%,  70%)";
-$op_colour3 = "hsl(0,  30%,  40%)";
 
-// Colour for hovered hyperlinks.
-$op_linkcolour = "#fd2";
-
-// Additional CSS.
+/**
+ * Additional CSS.
+ * 
+ * CSS rules to be added to the styling of the website.
+ * These will be put after the default styling, so that you can override some
+ * existing rules.
+ * 
+ * @global  string  $op_addcss
+ */
 $op_addcss = <<<EndOfCode
-      /* Put here any CSS style you want to add to the website. */
+    /* Put here any CSS style you want to add to the website. */
 EndOfCode;
 
 
-////////// PUBLICATION AND TALK LISTS //////////////////////////////
 
-// List the types of publications. 
-// An icon (link to an image) should be provided. By default, choose
-// one of the existing.
+////////// LISTS OF PUBLICATIONS OR TALKS /////////////////////////////////////
+
+
+/**
+ * Types of publications.
+ * 
+ * This array is used when you want to print a list of publications.
+ * 
+ * Each of its element is a type of publication, containing:
+ * - an element indexed by 'icon', that should be a string containing the path
+ *   to an image,
+ * - for each language xx, two elements indexed py 'xx' and 'xxpl', that should
+ *   be strings containing the singular and plural descriptions of the
+ *   publication type in the language xx.
+ * 
+ * Translations must be provided for all languages defined in $op_mainlang and
+ * in $op_otherlangs.
+ * 
+ * @global  array   $op_pubtypes        string => array( string => string )
+ */
 $op_pubtypes = array(
-      'book' => array(
-            'icon' => "includes/icones/1f4d8.svg",
-            'fr'   => "Livre",
-            'frpl' => "Livres",
-            'en'   => "Book",
-            'enpl' => "Books"
-      ),
-      'journal' => array(
-            'icon' => "includes/icones/1f4c4.svg",
-            'fr'   => "Article dans une revue",
-            'frpl' => "Articles dans une revue",
-            'en'   => "Journal article",
-            'enpl' => "Journal articles"
-      ),
-      'bookchapter' => array(
-            'icon' => "includes/icones/1f4d6.svg",
-            'fr'   => "Chapitre d'ouvrage",
-            'frpl' => "Chapitres d'ouvrages",
-            'en'   => "Book chapter",
-            'enpl' => "Book chapters"
-      ),
-      'conference' => array(
-            'icon' => "includes/icones/1f4ac.svg",
-            'fr'   => "Article dans les actes d'une conférence",
-            'frpl' => "Actes de conférences",
-            'en'   => "Conference article",
-            'enpl' => "Conference proceedings"
-      ),
-      'unpublished' => array(
-            'icon' => "includes/icones/1f4dd.svg",
-            'fr'   => "Non publié",
-            'frpl' => "Travaux non publiés",
-            'en'   => "Unpublished",
-            'enpl' => "Unpublished work"
-      ),
-      'thesis' => array(
-            'icon' => "includes/icones/1f393.svg",
-            'fr'   => "Mémoire",
-            'frpl' => "Mémoires",
-            'en'   => "Thesis",
-            'enpl' => "Theses"
-      )
+    'book' => array(
+        'icon' => "includes/icones/1f4d8.svg",
+        'fr'   => "Livre",
+        'frpl' => "Livres",
+        'en'   => "Book",
+        'enpl' => "Books"
+    ),
+    'journal' => array(
+        'icon' => "includes/icones/1f4c4.svg",
+        'fr'   => "Article dans une revue",
+        'frpl' => "Articles dans une revue",
+        'en'   => "Journal article",
+        'enpl' => "Journal articles"
+    ),
+    'bookchapter' => array(
+        'icon' => "includes/icones/1f4d6.svg",
+        'fr'   => "Chapitre d'ouvrage",
+        'frpl' => "Chapitres d'ouvrages",
+        'en'   => "Book chapter",
+        'enpl' => "Book chapters"
+    ),
+    'conference' => array(
+        'icon' => "includes/icones/1f4ac.svg",
+        'fr'   => "Article dans les actes d'une conférence",
+        'frpl' => "Actes de conférences",
+        'en'   => "Conference article",
+        'enpl' => "Conference proceedings"
+    ),
+    'unpublished' => array(
+        'icon' => "includes/icones/1f4dd.svg",
+        'fr'   => "Non publié",
+        'frpl' => "Travaux non publiés",
+        'en'   => "Unpublished",
+        'enpl' => "Unpublished work"
+    ),
+    'thesis' => array(
+        'icon' => "includes/icones/1f393.svg",
+        'fr'   => "Mémoire",
+        'frpl' => "Mémoires",
+        'en'   => "Thesis",
+        'enpl' => "Theses"
+    )
 );
 
-// Give the order of the publication types. By default, this is just
-// the order given below.
+
+/**
+ * The order of the (indices of the) publication types.
+ * 
+ * This array should contain the indices of $op_pubtypes (the previous one).
+ * Order them as you would want them to appear when the list of publications
+ * is sorted by publication type.
+ * 
+ * To keep the order given in $op_pubtypes above, set:
+ *      $op_pubtypes_order = array_keys($op_pubtypes);
+ * 
+ * @global  array   $op_pubtypes_order  int => string
+ */
 $op_pubtypes_order = array_keys($op_pubtypes);
 
-// List the possible states of a publication.
-// A 'published' option is not needed, this is the default state.
+
+/**
+ * The possible states of a publication.
+ * 
+ * Notice that you should not defined a 'published' state: published 
+ * publications will just have null as a state.
+ * 
+ * Translations must be provided for all languages defined in $op_mainlang and
+ * in $op_otherlangs.
+ * 
+ * @global  array   $op_pubstates       string => array( string => string )
+ */
 $op_pubstates = array(
-      'draft' => array(
-            'fr' => "brouillon",
-            'en' => "draft"
-      ),
-      'submitted' => array(
-            'fr' => "soumis",
-            'en' => "submitted"
-      ),
-      'review' => array(
-            'fr' => "en révision",
-            'en' => "under review"
-      ),
-      'accepted' => array(
-            'fr' => "to appear",
-            'en' => "à paraître"
-      )
+    'draft' => array(
+        'fr' => "brouillon",
+        'en' => "draft"
+    ),
+    'submitted' => array(
+        'fr' => "soumis",
+        'en' => "submitted"
+    ),
+    'review' => array(
+        'fr' => "en révision",
+        'en' => "under review"
+    ),
+    'accepted' => array(
+        'fr' => "to appear",
+        'en' => "à paraître"
+    )
 );
 
-// List the types of talks.
-// An icon (link to an image) should be provided. By default, choose
-// one of the existing.
+
+/**
+ * Types of talks.
+ * 
+ * This array is used when you want to print a list of talks.
+ * 
+ * Each of its element is a type of talk, containing:
+ * - an element indexed by 'icon', that should be a string containing the path
+ *   to an image,
+ * - for each language xx, two elements indexed py 'xx' and 'xxpl', that should
+ *   be strings containing the singular and plural descriptions of the
+ *   talk type in the language xx.
+ * 
+ * Translations must be provided for all languages defined in $op_mainlang and
+ * in $op_otherlangs.
+ * 
+ * @global  array   $op_talktypes       string => array( string => string )
+ */
 $op_talktypes = array(
-      'conference' => array(
-            'icon' => "includes/icones/1f399.svg",
-            'fr'   => "Conférence ou colloque",
-            'frpl' => "Conférences et colloques",
-            'en'   => "Conference or workshop",
-            'enpl' => "Conferences and workshops"
-      ),
-      'seminar' => array(
-            'icon' => "includes/icones/1f6e0.svg",
-            'fr'   => "Séminaire",
-            'frpl' => "Séminaires",
-            'en'   => "Seminar",
-            'enpl' => "Seminars"
-      ),
-      'poster' => array(
-            'icon' => "includes/icones/1f5fa.svg",
-            'fr'   => "Poster",
-            'frpl' => "Présentations de posters",
-            'en'   => "Poster",
-            'enpl' => "Poster sessions"
-      ),
-      'dissemination' => array(
-            'icon' => "includes/icones/1f37f.svg",
-            'fr'   => "Exposé grand public",
-            'frpl' => "Exposés pour non-spécialistes",
-            'en'   => "Non-specialist talk",
-            'enpl' => "Non-specialist talks"
-      )
+    'conference' => array(
+        'icon' => "includes/icones/1f399.svg",
+        'fr'   => "Conférence ou colloque",
+        'frpl' => "Conférences et colloques",
+        'en'   => "Conference or workshop",
+        'enpl' => "Conferences and workshops"
+    ),
+    'seminar' => array(
+        'icon' => "includes/icones/1f6e0.svg",
+        'fr'   => "Séminaire",
+        'frpl' => "Séminaires",
+        'en'   => "Seminar",
+        'enpl' => "Seminars"
+    ),
+    'poster' => array(
+        'icon' => "includes/icones/1f5fa.svg",
+        'fr'   => "Poster",
+        'frpl' => "Présentations de posters",
+        'en'   => "Poster",
+        'enpl' => "Poster sessions"
+    ),
+    'dissemination' => array(
+        'icon' => "includes/icones/1f37f.svg",
+        'fr'   => "Exposé grand public",
+        'frpl' => "Exposés pour non-spécialistes",
+        'en'   => "Non-specialist talk",
+        'enpl' => "Non-specialist talks"
+    )
 );
 
-// Give the order of the talk types. By default, this is just
-// the order given below.
+
+/**
+ * The order of the (indices of the) talk types.
+ * 
+ * This array should contain the indices of $op_talktypes (the previous one).
+ * Order them as you would want them to appear when the list of talks
+ * is sorted by talk type.
+ * 
+ * To keep the order given in $op_talktypes above, set:
+ *      $op_talktypes_order = array_keys($op_talktypes);
+ * 
+ * @global  array   $op_talktypes_order int => string
+ */
 $op_talktypes_order = array_keys($op_talktypes);
 
-// List the types of links below a publication or a talk.
-// Provide (capitalised) translations for each.
-// The 'prefix' should be the beginnig of an URL, see
-// the example with 'arXiv' below.
+
+/**
+ * Types of links that may be associated to a publication or a talk.
+ * 
+ * Each of the elements of this array should contain:
+ *  - for each language xx, an element indexed by 'xx' containing the text of
+ *    the link type in the language xx,
+ *  - an optional element indexed by 'prefix' containing the prefix of the URLs
+ *    of the links of this type.
+ * 
+ * For instance, arXiv links may have text "arXiv" (in each language), and URL
+ * prefix "https://arxiv.org/abs/" — so that one just has to write the arXiv
+ * identifier of the item when writing its data, e.g. 
+ *      'arxiv' => "2200.1234"
+ * instead of:
+ *      'arxiv' => "https://arxiv.org/abs/2200.1234"
+ * 
+ * Translations must be provided for all languages defined in $op_mainlang and
+ * in $op_otherlangs.
+ * 
+ * @global  array   $op_linktypes       string => array( string => string )
+ */
 $op_linktypes = array(
-      'pdf' => array(
-            'fr' => "PDF",
-            'en' => "PDF"
-      ),
-      'arxiv' => array(
-            'prefix' => "https://arxiv.org/abs/",
-            'fr' => "arXiv",
-            'en' => "arXiv"
-      ),
-      'hal' => array(
-            'prefix' => "https://hal.archives-ouvertes.fr/",
-            'fr' => "HAL",
-            'en' => "HAL"
-      ),
-      'slides' => array(
-            'fr' => "Diapos",
-            'en' => "Slides"
-      ),
-      'code' => array(
-            'fr' => "Code",
-            'en' => "Code"
-      ),
-      'video' => array(
-            'fr' => "Vidéo",
-            'en' => "Video"
-      )
+    'pdf' => array(
+        'fr' => "PDF",
+        'en' => "PDF"
+    ),
+    'arxiv' => array(
+        'prefix' => "https://arxiv.org/abs/",
+        'fr' => "arXiv",
+        'en' => "arXiv"
+    ),
+    'hal' => array(
+        'prefix' => "https://hal.archives-ouvertes.fr/",
+        'fr' => "HAL",
+        'en' => "HAL"
+    ),
+    'slides' => array(
+        'fr' => "Diapos",
+        'en' => "Slides"
+    ),
+    'code' => array(
+        'fr' => "Code",
+        'en' => "Code"
+    ),
+    'video' => array(
+        'fr' => "Vidéo",
+        'en' => "Video"
+    )
 );
 
 
-////////// ADDITIONAL STUFF ////////////////////////////////////////
 
-// If you want to add some content in the left an right margins of
-// the pages, you can insert it here.
-// Notice that you should also insrt the corresponding CSS in some
-// way.
-// Also, don't forget that the margins shrink on smaller screens,
-// or when the web browser is displayed in half-screen. You might
-// want to use the @media CSS selector to handle this.
+////////// ADDITIONAL STUFF ///////////////////////////////////////////////////
+
+
+/**
+ * Additional content in the left and right areas of the pages.
+ * 
+ * $op_addleft (resp. $op_addright) is HTML code that will be inserted in the
+ * area at the left (resp. at the right) of the body of the webpages.
+ * 
+ * However, it is reasonable to leave these empty: don't forget that these
+ * areas shrink on smaller screens (or when the borwser is displayed in
+ * half-screen). You might want to use the @media CSS selector to handle this.
+ * 
+ * @global  string  $op_addleft
+ * @global  string  $op_addright
+ */
 $op_addleft = <<<EndOfCode
-      <!-- Insert HTML code to be added in the left margin. -->
-EndOfCode;
-$op_addright = <<<EndOfCode
-      <!-- Insert HTML code to be added in the right margin. -->
+    <!-- Insert HTML code to be added in the left margin. -->
 EndOfCode;
 
-// Content of the footer.
-// Please consider keeping a link to this website template if you
-// modify this option.
-$op_footer = array(
-      'fr' => 
-            "<p>
-            Dernière modification&nbsp;: " . last_edit() . ".
-            <br>
-            Site construit à partir du modèle
-            <a href=\"https://github.com/sparusaurata/larus\"
-            target=\"_blank\">Larus</a>.
-            </p>",
-      'en' => 
-            "<p>
-            Last edit: " . last_edit() . ".
-            <br>
-            Website built upon the
-            <a href=\"https://github.com/sparusaurata/larus\"
-            target=\"_blank\">Larus</a>
-            template.
-            </p>"
-);
+$op_addright = <<<EndOfCode
+    <!-- Insert HTML code to be added in the right margin. -->
+EndOfCode;
+
+
+/**
+ * Content of the footer of the pages.
+ * 
+ * This is the HTML code displayed in the footer of the pages. Please consider
+ * keeping a link to https://github.com/sparusaurata/larus here. :-)
+ * 
+ * @global  string  $op_footer
+ */
+$op_footer = "<p>
+    <span lang=\"fr\">Dernière modification&nbsp;:</span>
+    <span lang=\"en\">Last edit:</span>
+    " . last_edit() . ".
+    <br>
+    <span lang=\"fr\">Site construit à l'aide du modèle</span>
+    <span lang=\"en\">Website build using the template</span>
+    <a href=\"https://github.com/sparusaurata/larus\" target=\"_blank\">
+    Larus</a>.
+</p>";
 
 ?>

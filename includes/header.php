@@ -1,7 +1,16 @@
-<?php // This is an internal file, do not modify unless you know
-      // what you are doing!
+<?php 
 
-// Prevent from loading directly this page.
+/**
+ * This file displays the header of the pages.
+ * 
+ * This is an internal file, do not modify unless you know what
+ * you are doing!
+ * 
+ * @license GNU General Public License v3 or later, see LICENSE.md
+ * @link    https://github.com/sparusaurata/larus
+ */
+
+// This line prevents from loading directly this page. Do not modify.
 if( !defined("origin") ) { die("<h1>Access denied</h1>"); }
 
 // Load a set of useful functions, and the user's options.
@@ -23,35 +32,57 @@ and in_array($_GET['lang'], $op_otherlangs) ) {
 <html lang="<?php echo $lang; ?>">
 
 <head>
-	<meta http-equiv="Content-Type"
-        content="text/html; charset=utf-8" />
+    <!---------- Metadata ---------------------------------------------------->
+	
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>
-        <?php print_title($page_title[$lang], $op_title[$lang]); ?>
+        <?php 
+        /**
+         * Prints the title of the page together with the website title.
+         * 
+         * @param  array $strings The titles to be printed together
+         * @return void
+         */
+        function print_title(...$strings) {
+            echo implode(' | ', array_filter($strings));
+        }
+
+        print_title($page_title[$lang], $op_title[$lang]);
+        ?>
     </title>
+    
     <meta name="author" content="<?php echo $op_name; ?>" />
-    <meta name="description"
-        content="<?php echo $op_description[$lang]; ?>" />
+    
+    <meta name="description" content="<?php echo $op_description[$lang]; ?>" />
+    
     <?php if ( $op_favicon ):?>
     <link rel="icon" href="<?php echo $op_favicon; ?>" />
     <?php endif; ?>
     
-    <!-- Loading fonts -->
+    <!---------- Loading fonts ----------------------------------------------->
+
     <?php if ( $op_gfonts ): ?>
+    <!-- The Roboto and Roboto Condensed fonts are imported from Google fonts,
+    where they are distributed under the Apache License v2.0. -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i%7CRoboto:400,400i,700,700i&display=swap&subset=latin-ext" rel="stylesheet">
     <?php endif; ?>
+    
     <?php if ( $op_othergfonts ): ?>
     <link href="<?php echo $op_othergfonts; ?>" rel="stylesheet">
     <?php endif; ?>
     
-    <!-- Loading styles -->
+    <!---------- Loading styles ---------------------------------------------->
+    
+    <!-- Styles depending on the options set in `config.php`-->
     <style>
         :root{
-            --bg: <?php echo $op_bgcolour; ?>;
-            --fg: <?php echo $op_fgcolour; ?>;
-            --c1: <?php echo $op_colour1; ?>;
-            --c2: <?php echo $op_colour2; ?>;
-            --c3: <?php echo $op_colour3; ?>;
-            --lk: <?php echo $op_linkcolour; ?>;
+            --bg: <?php echo $op_bgcolor; ?>;
+            --fg: <?php echo $op_fgcolor; ?>;
+            --c1: <?php echo $op_color1; ?>;
+            --c2: <?php echo $op_color2; ?>;
+            --c3: <?php echo $op_color3; ?>;
+            --lk: <?php echo $op_linkcolor; ?>;
             --font: '<?php echo $op_mainfont; ?>';
             --hfont: '<?php echo $op_headfont; ?>';
         }
@@ -60,20 +91,23 @@ and in_array($_GET['lang'], $op_otherlangs) ) {
             display: none !important;
         }
     </style>
-    <link rel='stylesheet' type='text/css'
-        href="includes/style.css" >
+
+    <!-- Main stylesheet -->
+    <link rel='stylesheet' type='text/css' href="includes/style.css" >
+
+    <!-- Custom styles specified in `config.php` -->
     <style>
         <?php echo $op_addcss; ?>
     </style>
 
-    <!-- Loading JS -->
+    <!---------- Javascript -------------------------------------------------->
+
+    <!-- Loading JS internal to the template -->
     <script type="text/javascript" src="includes/js.js"></script>
 
     <?php if ( $op_mathjax ): ?>
-    <!-- Loading MathJax -->
-    <script
-        src="https://polyfill.io/v3/polyfill.min.js?features=es6">
-    </script>
+    <!-- Loading MathJax, see https://www.mathjax.org. -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   	<script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -81,20 +115,30 @@ and in_array($_GET['lang'], $op_otherlangs) ) {
 
 </head>
 
+<!------------ THE PAGE STARTS HERE ------------------------------------------>
+
 <body>
 
+<!-- Area at the left of the body of the page. -->
 <div id="gauche">
     <?php echo $op_addleft; ?>
 </div>
 
+<!-- Body of the page, wrapping header, text and footer -->
 <div id="milieu">
 
     <header>
 
         <?php if ($op_multilingual): ?>
+        <!-- Language selection links -->
         <div id="lang">
             <?php 
-            // First a function to display the language links
+            /**
+             * Prints a language link (or a span for the active language).
+             * 
+             * @param   string $l    Identifier of the language
+             * @return  string       HTML code
+             */
             function print_lang_link($l) {
                 global $lang, $op_mainlang;
                 if ($l == $lang) {
@@ -106,10 +150,12 @@ and in_array($_GET['lang'], $op_otherlangs) ) {
                     }
                     echo "\">" . strtoupper($l) . "</a>";
                 }
-            } 
-            // Then the link for the main language
+            }
+
+            // Print the link for the main language
             print_lang_link($op_mainlang);
-            // Finally the links for the other languages,
+
+            // Print the links for the other languages,
             // with separators.
             foreach ($op_otherlangs as $l) {
                 echo " | ";
@@ -118,7 +164,8 @@ and in_array($_GET['lang'], $op_otherlangs) ) {
             ?>
         </div>
         <?php endif; ?>
-
+        
+        <!-- The main title of the wbesite -->
         <div id="titre">
             <a href="<?php print_langurl("index.php"); ?>#">
                 <?php echo $op_title[$lang]; ?>
@@ -126,12 +173,14 @@ and in_array($_GET['lang'], $op_otherlangs) ) {
         </div>
 
         <?php if ($op_subtitle): ?>
+        <!-- The subtitle of the website -->
         <div id="soustitre">
             <?php echo $op_subtitle[$lang]; ?>
         </div>
         <?php endif; ?>
 
         <?php if ($op_nav): ?>
+        <!-- The main menu of the website -->
         <nav>
             <?php foreach ($op_nav_content as $item): ?>
                 <a href="<?php print_langurl($item['link']); ?>">
@@ -142,5 +191,6 @@ and in_array($_GET['lang'], $op_otherlangs) ) {
         <?php endif; ?>
 
     </header>
-
+    
+    <!-- Wrapper for the text (between header and footer) -->
     <div id="corps">

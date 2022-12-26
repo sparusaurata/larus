@@ -1,7 +1,16 @@
-<?php // This is a list of talks.
+<?php 
 
-// Prevent from loading directly this page.
-// Do not modify this line.
+/**
+ * This file contains the data corresponding to a set of talks.
+ * 
+ * This is a sample file containing some talks, formatted in the specific
+ * format used by the website. Copy or modify it to store your own talks.
+ * 
+ * @license GNU General Public License v3 or later, see LICENSE.md
+ * @link    https://github.com/sparusaurata/larus
+ */
+
+// This line prevents from loading directly this page. Do not modify.
 if( !defined("origin") ) { die("<h1>Access denied</h1>"); }
 
 
