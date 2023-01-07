@@ -261,6 +261,11 @@ ol {
     background-color: black;
 }
 
+/* Hides some elements inserted by MathJax. */
+.MJX_LiveRegion, .MJX_HoverRegion, .MJX_ToolTip {
+    background-color: transparent !important;
+}
+
 
 /********** PUBLICATION AND TALK LISTS ***************************************/
 
