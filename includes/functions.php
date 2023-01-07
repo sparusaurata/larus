@@ -554,7 +554,7 @@ function print_list($id, $file, $param) {
         . 'contributors. See https://twemoji.twitter.com/. -->';
     echo '<div id="' . $id . '" class="publis">';
     $curr_subhead = null;
-    $printdates = !$subheads or ($sortby != 'date');
+    $printdates = !$subheads || ($sortby != 'date');
     foreach ($data as $i => $item) {
         if ( $subheads ) { 
             $curr_subhead = print_subhead(
