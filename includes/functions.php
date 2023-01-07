@@ -117,7 +117,8 @@ function last_edit() {
  * 
  * @param   string  $sortby         Index to be used for sorting
  *                                  (should be 'date' or 'type')
- * @param   boolean $rev            Whether the order should be decreasing
+ * @param   boolean $rev            Whether the ordering of dates should be 
+ *                                  decreasing
  * @param   array   $types_order    An array sorting the possible indices
  *                                  (in increasing order)
  * @param   array   $a              The first item to compare
@@ -168,7 +169,8 @@ function comparison_internal($sortby, $rev, $types_order, $a, $b) {
  * 
  * @param   string  $sortby     Index to be used for sorting
  *                              (should be 'date' or 'type')
- * @param   boolean $rev        Whether the order should be decreasing
+ * @param   boolean $rev        Whether the ordering of dates should be 
+ *                              decreasing
  * @param   string  $listtype   Should be 'pubs' or 'talks'
  * @return  function            Comparator
  */
@@ -503,7 +505,7 @@ function print_item_outer($item, $itemid, $listtype, $printdates) {
  *                          Possible values: 'pubs' (default), 'talks'.
  * 'sortby'     string      Key of the items used for sorting.
  *                          Possible values: 'date' (default), 'type'.
- * 'rev'        boolean     Whether the order should be decreasing.
+ * 'rev'        boolean     Whether the ordering of dates should be decreasing.
  *                          Default: true.
  * 'subheads'   boolean     Whether subheadings (corresponding to $sortby)
  *                          should be printed. Default: false.
