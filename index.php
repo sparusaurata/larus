@@ -22,6 +22,12 @@ require_once("includes/header.php");
 ///////////////////////////////////////////////////////////////////////////////
 ?>
 
+<p class="topelement" lang="fr">
+    La documentation n'est pas encore traduite en français, désolé...
+</p>
+
+<!---------------------------------------------------------------------------->
+
 <p class="topelement" lang="en">
     <img class="myself" src="includes/larus-michahellis.png"
     title="Larus Michahellis in the Farnese gardens (cc) Krzysztof Golik">
@@ -314,6 +320,7 @@ it is intended for comments -->
     <b>config.php</b>.
 </p>
 
+<!---------------------------------------------------------------------------->
 
 <?php
 // Do not modify these lines.

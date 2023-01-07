@@ -27,7 +27,7 @@ require_once("includes/header.php");
     the generation of lists of publications or talks.
 </p>
 
-<p class="en">
+<p lang="en">
     The general functioning of this generation is divided into two steps 
     (just like a simplified BibTeX-like system):
 </p>
@@ -72,7 +72,9 @@ require_once("includes/header.php");
     array()); ?>'); ?>.
 </p>
 
+<div lang="en">
 <?php print_list("example1", "data-publications.php", array()); ?>
+</div>
 
 <p lang="en">
     Have a look to <a href="https://github.com/sparusaurata/larus/blob/main/data-publications.php" target="_blank"><b>data-publications.php</b></a>
@@ -93,9 +95,11 @@ require_once("includes/header.php");
     array( "rev" => false )); ?>'); ?>.
 </p>
 
+<div lang="en">
 <?php print_list("example2", "data-publications.php", array(
     "rev" => false 
 )); ?>
+</div>
 
 <p lang="en">
     Now the publications are sorted in increasing order.
@@ -117,9 +121,11 @@ require_once("includes/header.php");
     array( "subheads" => true )); ?>'); ?>.
 </p>
 
+<div lang="en">
 <?php print_list("example3", "data-publications.php", array(
     "subheads" => true 
 )); ?>
+</div>
 
 <!---------------------------------------------------------------------------->
 
@@ -138,10 +144,12 @@ require_once("includes/header.php");
     array( "subheads" => true, "hide" => true )); ?>'); ?>.
 </p>
 
+<div lang="en">
 <?php print_list("example4", "data-publications.php", array(
     "subheads" => true,
     "hide" => true  
 )); ?>
+</div>
 
 <p lang="en">
     In addition, the <?php print_code('hidefst'); ?> also hides the first 
@@ -150,11 +158,13 @@ require_once("includes/header.php");
     array( "subheads" => true, "hide" => true, "hidefst => true )); ?>'); ?>.
 </p>
 
+<div lang="en">
 <?php print_list("example5", "data-publications.php", array(
     "subheads" => true,
     "hide" => true,
     "hidefst" => true
 )); ?>
+</div>
 
 <!---------------------------------------------------------------------------->
 
@@ -174,10 +184,12 @@ require_once("includes/header.php");
     array( "sortby" => "type", "subheads" => true )); ?>'); ?>.
 </p>
 
+<div lang="en">
 <?php print_list("example6", "data-publications.php", array(
     "sortby" => "type",
     "subheads" => true 
 )); ?>
+</div>
 
 <!---------------------------------------------------------------------------->
 
@@ -197,11 +209,17 @@ require_once("includes/header.php");
     array( "listtype" => "talks" )); ?>'); ?>.
 </p>
 
+<div lang="en">
 <?php print_list("example7", "data-talks.php", array(
     "listtype" => "talks"
 )); ?>
+</div>
 
 <!---------------------------------------------------------------------------->
+
+<p class="topelement" lang="fr">
+    La documentation n'est pas encore traduite en français, désolé...
+</p>
 
 <?php
 // Do not modify these lines.
