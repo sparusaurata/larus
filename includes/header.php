@@ -183,7 +183,11 @@ and in_array($_GET['lang'], $op_otherlangs) ) {
         <!-- The main menu of the website -->
         <nav>
             <?php foreach ($op_nav_content as $item): ?>
-                <a href="<?php print_langurl($item['link']); ?>">
+                <a
+                    href="<?php print_langurl($item['link']); ?>"
+                    <?php if ( !empty($item['out']) ): ?>
+                        target="_blank"
+                    <?php endif; ?> >
                     <?php echo $item[$lang]; ?>
                 </a>
             <?php endforeach; ?>

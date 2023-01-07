@@ -217,14 +217,9 @@ $op_nav = true;
  */
 $op_nav_content = [
     array(
-        'link' => "#",
-        'fr'   => "Accueil",
-        'en'   => "Home"
-    ),
-    array(
-        'link' => "#heading",
-        'fr'   => "Lien vers une ancre",
-        'en'   => "Anchor link"
+        'link' => "index.php",
+        'fr'   => "Page d'accueil",
+        'en'   => "Homepage"
     ),
     array(
         'link' => "lists.php",
@@ -233,9 +228,15 @@ $op_nav_content = [
     ),
     array(
         'link' => "https://github.com/sparusaurata/larus",
-        'fr'   => "GitHub",
-        'en'   => "GitHub"
-    )
+        'out'  => true, 
+        'fr'   => "Projet GitHub",
+        'en'   => "GitHub project"
+    ),
+    array(
+        'link' => "index.php#heading",
+        'fr'   => "(exemple)",
+        'en'   => "(example)"
+    ),
 ];
 
 
