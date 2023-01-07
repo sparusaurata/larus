@@ -144,7 +144,7 @@ function comparison_internal($sortby, $rev, $types_order, $a, $b) {
         // by a recursive call.
         // Otherwise, compare the types.
         if ($atype == $btype) {
-            $out = comparison_internal('date', $rev, $a, $b);
+            $out = comparison_internal('date', $rev, $types_order, $a, $b);
         } else {
             $out = $atype - $btype;
         }
