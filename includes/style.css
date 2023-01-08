@@ -231,6 +231,12 @@ ol {
         font-weight: bold;
     }
 
+/* Dropdown lists */
+
+details summary {
+    cursor: pointer;
+}
+
 
 /********** GADGETS ***********************************************************/
 
