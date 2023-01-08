@@ -448,8 +448,8 @@ $op_pubstates = array(
         'en' => "under review"
     ),
     'accepted' => array(
-        'fr' => "to appear",
-        'en' => "à paraître"
+        'fr' => "à paraître",
+        'en' => "to appear"
     )
 );
 
