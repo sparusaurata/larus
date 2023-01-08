@@ -319,12 +319,12 @@ $op_mathjax = true;
  * @global  string  $op_color3
  * @global  string  $op_linkcolor
  */
-$op_bgcolor     = "hsl(200,  20%,  20%)";
+$op_bgcolor     = "hsl(  0,   0%,  20%)";
 $op_fgcolor     = "white";
-$op_color1      = "hsl(200, 100%,  50%)";
-$op_color2      = "hsl(200, 100%,  70%)";
-$op_color3      = "hsl(200,  30%,  40%)";
-$op_linkcolor   = "hsl(320, 100%,  50%)";
+$op_color1      = "hsl(340,  90%,  50%)";
+$op_color2      = "hsl(340,  90%,  70%)";
+$op_color3      = "hsl(340,  30%,  40%)";
+$op_linkcolor   = "hsl( 50, 100%,  50%)";
 
 
 /**
