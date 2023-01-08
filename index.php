@@ -28,9 +28,18 @@ require_once("includes/header.php");
 
 <!---------------------------------------------------------------------------->
 
+<!-- Text between these weird tags will not be displayed:
+it is intended for comments -->
+
+
+<!-- This paragraph has class "topelement" because it is the first of the
+page (for English language), so its spacing must be adapted. -->
 <p class="topelement" lang="en">
+    <!-- This tag inserts an image. The class "myself" automatically puts the
+    image on the right of the paragraph and resizes it. -->
     <img class="myself" src="includes/larus-michahellis.png"
     title="Larus Michahellis in the Farnese gardens (cc) Krzysztof Golik">
+    
     This is a demo for the Larus template. It also serves as a basic user 
     documentation.
 </p>
@@ -63,9 +72,6 @@ require_once("includes/header.php");
 
 
 <!---------------------------------------------------------------------------->
-
-<!-- Text between these weird tags will not be displayed:
-it is intended for comments -->
 
 <h1 lang="en">Basic HTML writing</h1>
 
@@ -188,6 +194,10 @@ it is intended for comments -->
 
 <p lang="en">
     Again, see the source code of this page as an example!
+    Notice that there are two possible ways to organise a multiplingual webpage:
+    either you write all the paragraphs in language 1, then all the paragraphs 
+    in language 2, etc.; or you write the first paragraph in each language,
+    then the second paragraph in each language, etc.
 </p>
 
 <p lang="en">
