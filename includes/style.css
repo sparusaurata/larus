@@ -323,11 +323,14 @@ span.pubtitre {
 
 /* Details of a publication (2nd line) */
 .pubdetails {
+    margin-top: 2px;
+    line-height: 150%;
     font-size: 85%;
 }
 
 /* Links related to a publication (3rd line) */
 .publiens {
+    margin-top: 2px;
     font-size: 85%;
 }
 .publiens .lien, .publiens a {
