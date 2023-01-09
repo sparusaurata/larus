@@ -80,7 +80,7 @@ header {
     display: block;
     box-sizing: border-box;
     width: fit-content;
-    margin: 0 auto;
+    margin: 10px auto 0;
     padding: 3px 8px;
     background-color: var(--c1);
     border: none;
@@ -93,7 +93,7 @@ header {
 
 /* Subtitle of the website */
 #soustitre {
-    padding-top: 10px;
+    padding-top: 15px;
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
@@ -148,7 +148,7 @@ footer {
 /* Paragraphs and list items */
 p, li {
     text-align: justify;
-    line-height: 150%;
+    line-height: 160%;
     margin: 2px 0 6px;
     hyphens: auto;
 }
@@ -175,14 +175,14 @@ h1, h2, h3 {
 }
 
 h1 {
-    margin: 32px 0 18px;
+    margin: 40px 0 18px;
     font-size: 170%;
     font-weight: bold;
     color: var(--c1);
 }
 
 h2 {
-    margin: 20px 0 10px;
+    margin: 22px 0 12px;
     font-size: 125%;
     font-weight: bold;
     color: var(--c2);
@@ -191,7 +191,7 @@ h2 {
 /* Class .subdivision (below) behaves just like h3, if you
 /* modify the latter you might want to modify the former. */
 h3 {
-    margin: 10px 0 8px;
+    margin: 15px 0 8px;
     font-size: 110%;
     font-weight: bold;
     font-variant: small-caps;
@@ -282,7 +282,7 @@ details summary {
 
 /* Subheading inside the list */
 .publis .subdivision {
-    margin: 10px 0 8px;
+    margin: 15px 0 8px;
     font-size: 110%;
     font-weight: bold;
     font-variant: small-caps;
