@@ -83,6 +83,7 @@ and in_array($_GET['lang'], $op_otherlangs) ) {
             --c2: <?php echo $op_color2; ?>;
             --c3: <?php echo $op_color3; ?>;
             --lk: <?php echo $op_linkcolor; ?>;
+            --tfg: <?php echo $op_titlefgcolor; ?>;
             --font: '<?php echo $op_mainfont; ?>';
             --hfont: '<?php echo $op_headfont; ?>';
         }

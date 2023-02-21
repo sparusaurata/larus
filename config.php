@@ -310,6 +310,7 @@ $op_mathjax = true;
  * $op_color3 is used to highlight some elements (h3). By default it is darker
  *   than $op_color1.
  * $op_linkcolor is the color of the (hovered) hyperlinks.
+ * $op_titlefgcolor is the color of the main title of the website.
  * 
  * @global  string  $op_bgcolor
  * @global  string  $op_fgcolor
@@ -317,13 +318,15 @@ $op_mathjax = true;
  * @global  string  $op_color2
  * @global  string  $op_color3
  * @global  string  $op_linkcolor
+ * @global  string  $op_titlefgcolor
  */
 $op_bgcolor     = "hsl(  0,   0%,  20%)";
 $op_fgcolor     = "white";
-$op_color1      = "hsl(340,  90%,  50%)";
-$op_color2      = "hsl(340,  90%,  70%)";
-$op_color3      = "hsl(340,  30%,  40%)";
-$op_linkcolor   = "hsl( 50, 100%,  50%)";
+$op_color1      = "white";
+$op_color2      = "#999";
+$op_color3      = "#666";
+$op_linkcolor   = "#D65";
+$op_titlefgcolor= $op_bgcolor;
 
 
 /**

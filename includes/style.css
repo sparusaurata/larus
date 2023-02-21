@@ -90,7 +90,7 @@ header {
     font-family: var(--hfont), var(--font), sans-serif;
     font-size: 180%;
     font-weight: bold;
-    color: white;
+    color: var(--tfg);
 }
 
 /* Subtitle of the website */
