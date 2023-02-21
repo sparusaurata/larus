@@ -132,9 +132,8 @@ license:
 
 The following third-party components are loaded by this template (if the 
 corresponding options are activated):
-* the fonts [Roboto](https://fonts.google.com/specimen/Roboto) and
-  [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed)
-  by Christian Robertson from the Google fonts project, distributed under the
-  [Apache License v2.0](https://www.apache.org/licenses/LICENSE-2.0);
+* the [Work Sans](https://fonts.google.com/specimen/Work+Sans) fonts
+  by Wei Huang from the Google fonts project, distributed under the
+  [Open Font License v1.1](https://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web);
 * the [MathJax](http://www.mathjax.org/) library, distributed under the
   [Apache License v2.0](https://www.apache.org/licenses/LICENSE-2.0).

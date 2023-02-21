@@ -554,7 +554,7 @@ function print_list($id, $file, $param) {
     echo '<!-- List of publications (or talks).' . "\n"
         . 'The icons are from the Twemoji project by Twitter, Inc. and other '
         . 'contributors. See https://twemoji.twitter.com/. -->';
-    echo '<div id="' . $id . '" class="publis">';
+    echo '<div id="' . $id . '" class="pliste '.  $listtype .'">';
     $curr_subhead = null;
     $printdates = !$subheads || ($sortby != 'date');
     foreach ($data as $i => $item) {

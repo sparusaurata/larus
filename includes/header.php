@@ -63,9 +63,9 @@ and in_array($_GET['lang'], $op_otherlangs) ) {
     <!---------- Loading fonts ----------------------------------------------->
 
     <?php if ( $op_gfonts ): ?>
-    <!-- The Roboto and Roboto Condensed fonts are imported from Google fonts,
-    where they are distributed under the Apache License v2.0. -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i%7CRoboto:400,400i,700,700i&display=swap&subset=latin-ext" rel="stylesheet">
+    <!-- The Work Sans fonts are imported from Google fonts,
+    where they are distributed under the Open Font License. -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,500;0,900;1,300;1,500&display=swap" rel="stylesheet"> 
     <?php endif; ?>
     
     <?php if ( $op_othergfonts ): ?>

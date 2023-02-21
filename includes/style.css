@@ -29,6 +29,8 @@ body {
     background-color: var(--bg);
     color: var(--fg);
     font-family: var(--font), sans-serif;
+    font-size: 14pt;
+    font-weight: 300;
 }
 
 /* Left and right areas around the body of the page */
@@ -104,7 +106,7 @@ header {
 /* Main menu of the website */
 nav {
     display: flex;
-    margin-top: 20px;
+    margin-top: 25px;
     border-top: 2px solid rgba(127, 127, 127, 0.1);
     border-bottom: 2px solid rgba(127, 127, 127, 0.1);
     padding: 6px 0;
@@ -147,9 +149,8 @@ footer {
 
 /* Paragraphs and list items */
 p, li {
-    text-align: justify;
-    line-height: 160%;
-    margin: 2px 0 6px;
+    line-height: 170%;
+    margin: 2px 0 1ex;
     hyphens: auto;
 }
 
@@ -175,14 +176,14 @@ h1, h2, h3 {
 }
 
 h1 {
-    margin: 40px 0 18px;
+    margin: 3ex 0 2ex;
     font-size: 170%;
     font-weight: bold;
     color: var(--c1);
 }
 
 h2 {
-    margin: 22px 0 12px;
+    margin: 3ex 0 2ex;
     font-size: 125%;
     font-weight: bold;
     color: var(--c2);
@@ -191,10 +192,9 @@ h2 {
 /* Class .subdivision (below) behaves just like h3, if you
 /* modify the latter you might want to modify the former. */
 h3 {
-    margin: 15px 0 8px;
+    margin: 2ex 0 1.5ex;
     font-size: 110%;
     font-weight: bold;
-    font-variant: small-caps;
     color: var(--c3);
 }
 
@@ -204,7 +204,7 @@ h3 {
 /* Unordered lists */
 ul {
     padding-left: 1.2em;
-    margin: 3px 0;
+    margin: 0.5ex 0;
 }
 
     ul li {
@@ -219,7 +219,7 @@ ul {
 /* Ordered lists */
 ol {
     padding-left: 1.7em;
-    margin: 5px 0;
+    margin: 0.5ex 0;
 }
 
     ol li {
@@ -265,6 +265,7 @@ details summary {
     padding: 1px 3px;
     font-family: monospace;
     background-color: black;
+    font-size: smaller;
 }
 
 /* Hides some elements inserted by MathJax. */
@@ -276,31 +277,34 @@ details summary {
 /********** PUBLICATION AND TALK LISTS ***************************************/
 
 /* Wrapper of the list */
-.publis {
+.pliste {
     margin: 15px 0;
 }
 
 /* Subheading inside the list */
-.publis .subdivision {
-    margin: 15px 0 8px;
+.pliste .subdivision {
+    margin: 2ex 0 1ex;
     font-size: 110%;
     font-weight: bold;
-    font-variant: small-caps;
     color: var(--c3);
 }
 
 /* Wrapper of a single publication or talk */
-.publis .publi {
+.pliste .publi {
     display: flex;
     padding-left: 8px;
-    margin: 2px 0 8px;
-    text-align: justify;
     line-height: 150%;
     hyphens: auto;
 }
+.pubs .publi {
+    margin: 2px 0 2ex;
+}
+.talks .publi {
+    margin: 2px 0 1ex;
+}
 
 /* Publications or talks marked as important */
-.publis .importante {
+.pliste .importante {
     border: 2px solid rgba(127, 127, 127, 0.1);
     background-color: rgba(127, 127, 127, 0.04);
     padding: 8px 8px 6px 6px;
@@ -318,7 +322,7 @@ details summary {
 
 /* Title of a publication or talk */
 span.pubtitre {
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 /* Details of a publication (2nd line) */

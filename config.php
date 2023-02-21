@@ -247,10 +247,9 @@ $op_nav_content = [
 /**
  * (De)activate the loading of some Google fonts.
  * 
- * By default, the fonts Roboto and Roboto Condensed from Google fonts are
+ * By default, the fonts Work Sans from Google fonts are
  * loaded. See:
- * https://fonts.google.com/specimen/Roboto,
- * https://fonts.google.com/specimen/Roboto+Condensed.
+ * https://fonts.google.com/specimen/Work+Sans
  * This is performed when $op_gfonts is true.
  * 
  * You can also load other Google fonts (or any fonts contained in a CSS
@@ -277,8 +276,8 @@ $op_othergfonts = null;
  * @global  string  $op_mainfont
  * @global  string  $op_headfont
  */
-$op_mainfont = "Roboto";
-$op_headfont = "Roboto Condensed";
+$op_mainfont = "Work Sans";
+$op_headfont = "Work Sans";
 
 
 /**
