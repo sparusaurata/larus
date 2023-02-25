@@ -294,7 +294,7 @@ page (for English language), so its spacing must be adapted. -->
         The last link points to <?php print_code('#heading'); ?>.
         This is an <b>anchor link</b>, it points to somewhere <i>inside</i>
         the page you are reading
-        (in this example, it points to the title “The main menu” above).
+        (in this example, it points to the heading “The main menu” above).
         <br>
         To achieve this, you must first place an <i>anchor</i> somewhere in 
         the webpage, so that you can link to it.

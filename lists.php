@@ -40,7 +40,7 @@ require_once("includes/header.php");
         This is done in a dedicated file; you can find examples in 
         <a href="https://github.com/sparusaurata/larus/blob/main/data-publications.php" target="_blank"><b>data-publications.php</b></a>
         and <a href="https://github.com/sparusaurata/larus/blob/main/data-talks.php" target="_blank"><b>data-talks.php</b></a>.
-        These files should are thoroughly documented and should be
+        These files are thoroughly documented and should be
         self-explanatory. 
     </li><li>
         The generation of a list of publications (or talks) inside one of your 

@@ -257,7 +257,7 @@ details summary {
 /* Insert a skip above an element
 /* (like a line skip between paragraphs). */
 .skipabove {
-    margin-top: 12px;
+    margin-top: 2.5ex;
 }
 
 /* Source code (mostly intended for the demo). */
