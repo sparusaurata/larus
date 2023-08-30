@@ -170,6 +170,10 @@ a:hover, .lien:hover {
     cursor: pointer;
 }
 
+b {
+    font-weight: bold;
+}
+
 
 /***** Headings *****/
 
