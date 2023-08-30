@@ -270,6 +270,11 @@ details summary {
     font-size: smaller;
 }
 
+/* Normal font size for MathJax stuff */
+.MathJax {
+    font-size: 100% !important;
+}
+
 /* Hides some elements inserted by MathJax. */
 .MJX_LiveRegion, .MJX_HoverRegion, .MJX_ToolTip {
     background-color: transparent !important;
